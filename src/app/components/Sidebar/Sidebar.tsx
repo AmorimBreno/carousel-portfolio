@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { FaGithub, FaLinkedin, FaFlask } from 'react-icons/fa6'
 import { motion, AnimatePresence } from 'framer-motion'
 import PageLink from './PageLink.js'
-import SideBarToggleButton from './SideBarTOggleButton.js'
+import SideBarToggleButton from './SideBarToggleButton.js'
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -20,7 +20,7 @@ export default function Sidebar() {
 
   return (
     <div
-      className={`${isOpen ? 'm:w-[60%] w-[80%] sm:w-[50%]' : 'w-12'} fixed left-0 top-0 z-10 flex h-screen flex-row items-center justify-start bg-gray-100 p-3 duration-300 ease-in-out`}
+      className={`${isOpen ? 'm:w-[60%] w-[80%] sm:w-[50%]' : 'w-12'} fixed left-0 top-0 z-10 flex h-screen flex-row items-center justify-start bg-white p-3 duration-300 ease-in-out`}
     >
       <div className="flex h-full flex-col justify-between">
         <FaFlask size={20} />
