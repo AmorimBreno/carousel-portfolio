@@ -5,6 +5,7 @@ import { Cursor } from './components/Cursor'
 import About from './pages/about'
 import Contact from './pages/contact'
 import CSV from './pages/csv'
+import { NavbarContext } from './contexts/sidebar-context'
 
 export function App() {
   return (

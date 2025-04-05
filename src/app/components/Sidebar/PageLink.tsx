@@ -1,13 +1,23 @@
 import { motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 
 export default function PageLink(props: {
   title: string
   link: string
   delay: number
+  closeSidebar: () => void
 }) {
+  const navigate = useNavigate()
+
+  const followLink = () => {
+    props.closeSidebar()
+
+    setTimeout(() => navigate(props.link), 100)
+  }
+
   return (
     <motion.a
-      href={props.link}
+      onClick={followLink}
       className="cursor-none hover:underline"
       initial={{ opacity: 0, x: -10 }}
       animate={{ opacity: 1, x: 0 }}

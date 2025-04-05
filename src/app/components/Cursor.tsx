@@ -1,21 +1,11 @@
 import { easeInOut, motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
+import { useCursor } from '../hooks/use-cursor'
 
 export function Cursor() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [cursorVariant, setCursorVariant] = useState('default')
 
-  useEffect(() => {
-    const updateMousePosition = (event: MouseEvent) => {
-      setMousePosition({ x: event.clientX, y: event.clientY })
-    }
-
-    window.addEventListener('mousemove', updateMousePosition)
-
-    return () => {
-      window.removeEventListener('mousemove', updateMousePosition)
-    }
-  }, [])
+  const { mousePosition } = useCursor()
 
   const variants = {
     default: {

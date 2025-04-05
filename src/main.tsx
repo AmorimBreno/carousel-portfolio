@@ -2,12 +2,15 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { App } from './app/app.tsx'
 import './app/styles/global.css'
-import { ThemeProvider } from './app/contexts/theme-provider.tsx'
+import { NavbarProvider } from './app/contexts/sidebar-context.tsx'
+import { CursorProvider } from './app/contexts/cursor-context.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <ThemeProvider>
+    <CursorProvider>
+    <NavbarProvider>
       <App />
-    </ThemeProvider>
+    </NavbarProvider>
+    </CursorProvider>
   </React.StrictMode>
 )

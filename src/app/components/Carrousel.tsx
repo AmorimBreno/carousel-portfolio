@@ -55,7 +55,7 @@ export function CarrouselCard(props: {
       <a onClick={() => navigate('#')}>
         <img
           src={props.image}
-          className="peer size-full cursor-none justify-center object-cover transition-all duration-700 ease-in-out hover:origin-center hover:scale-[1.02] hover:transform hover:blur-sm"
+          className="peer size-full cursor-none justify-center object-cover transition-all duration-700 ease-in-out hover:origin-center hover:scale-[1.02] hover:transform hover:opacity-40"
         />
         <h1 className="pointer-events-none absolute right-0 top-1/2 h-full w-full text-center font-mono text-2xl text-transparent transition-all duration-700 ease-in-out peer-hover:text-black">
           {props.title}

@@ -3,18 +3,27 @@ import { FaGithub, FaLinkedin, FaFlask } from 'react-icons/fa6'
 import { motion, AnimatePresence } from 'framer-motion'
 import PageLink from './PageLink.js'
 import SideBarToggleButton from './SideBarToggleButton.js'
+import { useSidebar } from '@/app/hooks/use-sidebar.js'
 
 export default function Sidebar() {
-  const [isOpen, setIsOpen] = useState(false)
+  const { isOpen, toggleSidebar } = useSidebar()
   const [showContent, setShowContent] = useState(false)
 
-  const toggleSidebar = () => {
+  const openSidebar = () => {
+    toggleSidebar()
+    setTimeout(() => setShowContent(true), 50)
+  }
+
+  const closeSidebar = () => {
+    setShowContent(false)
+    setTimeout(() => toggleSidebar(), 50)
+  }
+
+  const handleSideBar = () => {
     if (!isOpen) {
-      setIsOpen(true)
-      setTimeout(() => setShowContent(true), 50)
+      openSidebar()
     } else {
-      setShowContent(false)
-      setTimeout(() => setIsOpen(false), 50)
+      closeSidebar()
     }
   }
 
@@ -24,7 +33,7 @@ export default function Sidebar() {
     >
       <div className="flex h-full flex-col justify-between">
         <FaFlask size={20} />
-        <SideBarToggleButton isOpen={isOpen} toggleSidebar={toggleSidebar} />
+        <SideBarToggleButton isOpen={isOpen} toggleSidebar={handleSideBar} />
         <div className="h-full" />
         <div className="flex h-1/6 flex-col justify-end gap-4">
           <a href="#" className="cursor-none">
@@ -46,10 +55,30 @@ export default function Sidebar() {
           >
             <div className="h-10 w-1/3"></div>
             <div className="flex flex-col gap-16 font-mono text-4xl text-black sm:text-6xl">
-              <PageLink link="/" title="Home" delay={0.1} />
-              <PageLink link="/about" title="Sobre" delay={0.15} />
-              <PageLink link="/contact" title="Contato" delay={0.2} />
-              <PageLink link="/csv" title="CSV" delay={0.25} />
+              <PageLink
+                link="/"
+                title="Home"
+                delay={0.1}
+                closeSidebar={closeSidebar}
+              />
+              <PageLink
+                link="/about"
+                title="Sobre"
+                delay={0.15}
+                closeSidebar={closeSidebar}
+              />
+              <PageLink
+                link="/contact"
+                title="Contato"
+                delay={0.2}
+                closeSidebar={closeSidebar}
+              />
+              <PageLink
+                link="/csv"
+                title="CSV"
+                delay={0.25}
+                closeSidebar={closeSidebar}
+              />
             </div>
           </motion.div>
         )}
