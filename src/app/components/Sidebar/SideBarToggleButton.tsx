@@ -6,7 +6,10 @@ export default function SideBarToggleButton(props: {
   isOpen: boolean
 }) {
   return (
-    <button onClick={props.toggleSidebar} className="r-0 absolute top-1/2">
+    <button
+      onClick={props.toggleSidebar}
+      className="r-0 absolute top-1/2 cursor-none"
+    >
       <AnimatePresence mode="wait">
         {props.isOpen ? (
           <motion.span

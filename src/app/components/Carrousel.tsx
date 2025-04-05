@@ -1,16 +1,19 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import SmileBanner from '../assets/smile-banner.jpg'
+import MauaFoodBanner from '../assets/mauafood-banner.png'
+import { useNavigate } from 'react-router-dom'
 
 export default function Carrousel() {
-  const slides = [SmileBanner, SmileBanner, SmileBanner, SmileBanner]
+  const slides = [SmileBanner, MauaFoodBanner, SmileBanner, SmileBanner]
+  const titles = ['Smile', 'MauaFood', 'SmartFarm', 'Portfolios']
 
   const targetRef = useRef<HTMLDivElement | null>(null)
   const { scrollYProgress } = useScroll({
     target: targetRef
   })
 
-  const x = useTransform(scrollYProgress, [0, 1], ['0%', '-25.2%'])
+  const x = useTransform(scrollYProgress, [0, 1], ['-1%', '-25.2%'])
 
   return (
     <section ref={targetRef} className="relative ml-12 h-[200vh]">
@@ -18,10 +21,15 @@ export default function Carrousel() {
         <motion.div
           className="flex gap-2"
           style={{ x }}
-          transition={{ type: 'spring', stiffness: 100 }}
+          transition={{ type: 'spring', stiffness: 200, duration: 0.2 }}
         >
-          {slides.map((url) => (
-            <CarrouselCard key={url} image={url} title={'teste'} />
+          {slides.map((url, mult) => (
+            <CarrouselCard
+              key={url}
+              image={url}
+              title={titles[mult]}
+              duration={0.1 * mult}
+            />
           ))}
         </motion.div>
       </div>
@@ -33,19 +41,26 @@ export function CarrouselCard(props: {
   key: string
   image: string
   title: string
+  duration: number
 }) {
+  const navigate = useNavigate()
   return (
-    <div
+    <motion.div
       key={props.key}
-      className="relative h-[98vh] w-[31.3vw] overflow-hidden rounded-sm transition-all duration-700 hover:text-black"
+      className="relative h-[98vh] w-[31.3vw] cursor-none overflow-hidden rounded-sm transition-all duration-700 hover:cursor-pointer hover:text-black"
+      initial={{ y: '100%' }}
+      animate={{ y: '0' }}
+      transition={{ type: 'spring', duration: props.duration }}
     >
-      <img
-        src={props.image}
-        className="peer size-full justify-center object-cover transition-all duration-700 ease-in-out hover:origin-center hover:scale-[1.02] hover:transform hover:opacity-40"
-      />
-      <h1 className="f pointer-events-none invisible absolute right-[47%] top-1/2 font-mono text-lg text-black peer-hover:visible">
-        {props.title}
-      </h1>
-    </div>
+      <a onClick={() => navigate('#')}>
+        <img
+          src={props.image}
+          className="peer size-full cursor-none justify-center object-cover transition-all duration-700 ease-in-out hover:origin-center hover:scale-[1.02] hover:transform hover:blur-sm"
+        />
+        <h1 className="pointer-events-none absolute right-0 top-1/2 h-full w-full text-center font-mono text-2xl text-transparent transition-all duration-700 ease-in-out peer-hover:text-black">
+          {props.title}
+        </h1>
+      </a>
+    </motion.div>
   )
 }

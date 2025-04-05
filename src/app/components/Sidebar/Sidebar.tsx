@@ -20,17 +20,17 @@ export default function Sidebar() {
 
   return (
     <div
-      className={`${isOpen ? 'm:w-[60%] w-[80%] sm:w-[50%]' : 'w-12'} fixed left-0 top-0 z-10 flex h-screen flex-row items-center justify-start bg-white p-3 duration-300 ease-in-out`}
+      className={`${isOpen ? 'm:w-[60%] w-[80%] sm:w-[50%]' : 'w-12'} fixed left-0 top-0 z-10 flex h-screen cursor-none flex-row items-center justify-start bg-white p-3 duration-300 ease-in-out`}
     >
       <div className="flex h-full flex-col justify-between">
         <FaFlask size={20} />
         <SideBarToggleButton isOpen={isOpen} toggleSidebar={toggleSidebar} />
         <div className="h-full" />
         <div className="flex h-1/6 flex-col justify-end gap-4">
-          <a href="#">
+          <a href="#" className="cursor-none">
             <FaGithub size={20} />
           </a>
-          <a href="#">
+          <a href="#" className="cursor-none">
             <FaLinkedin size={20} />
           </a>
         </div>
@@ -46,10 +46,10 @@ export default function Sidebar() {
           >
             <div className="h-10 w-1/3"></div>
             <div className="flex flex-col gap-16 font-mono text-4xl text-black sm:text-6xl">
-              <PageLink link="#" title="Home" delay={0.1} />
-              <PageLink link="#" title="Sobre" delay={0.15} />
-              <PageLink link="#" title="Contato" delay={0.2} />
-              <PageLink link="#" title="CSV" delay={0.25} />
+              <PageLink link="/" title="Home" delay={0.1} />
+              <PageLink link="/about" title="Sobre" delay={0.15} />
+              <PageLink link="/contact" title="Contato" delay={0.2} />
+              <PageLink link="/csv" title="CSV" delay={0.25} />
             </div>
           </motion.div>
         )}

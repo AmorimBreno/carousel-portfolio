@@ -3,7 +3,9 @@ import Carrousel from '../components/Carrousel'
 export function Home() {
   return (
     <main>
-      <Carrousel />
+      <div className="cursor-none">
+        <Carrousel />
+      </div>
     </main>
   )
 }
