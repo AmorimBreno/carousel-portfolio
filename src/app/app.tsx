@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Home } from './pages/home'
 import Sidebar from './components/Sidebar/Sidebar'
 import { Cursor } from './components/Cursor'
-import About from './pages/About'
+import About from './pages/about'
 import Contact from './pages/contact'
 import CSV from './pages/csv'
 
