@@ -54,7 +54,7 @@ export default function Sidebar() {
             className="flex flex-row gap-16"
           >
             <div className="h-10 w-1/3"></div>
-            <div className="flex flex-col gap-16 font-mono text-4xl text-black sm:text-6xl">
+            <div className="flex flex-col gap-16 font-mont text-4xl text-black sm:text-6xl">
               <PageLink
                 link="/"
                 title="Home"

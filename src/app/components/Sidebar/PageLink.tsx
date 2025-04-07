@@ -18,7 +18,7 @@ export default function PageLink(props: {
   return (
     <motion.a
       onClick={followLink}
-      className="cursor-none hover:underline"
+      className="cursor-none hover:underline font-mont"
       initial={{ opacity: 0, x: -10 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -10 }}
