@@ -35,7 +35,7 @@ export function ExperienceCard(exp: {title: string, start:number , finish:number
             hovered: {y:0}  
         }} 
         
-        className="items-center flex justify-between p-4 h-full bg-yellow-400 absolute inset-0"> 
+        className="items-center flex justify-between p-4 h-full bg-purple-400 absolute inset-0"> 
             <h1 className="text-2xl">{exp.title}</h1>
             <h1 className="text-2xl">{exp.position}</h1>
         </motion.div>

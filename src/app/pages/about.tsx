@@ -11,8 +11,13 @@ export default function About() {
           <div className="w-full h-full px-24 pt-16 flex flex-col">
             <h1 className="text-5xl font-semibold font-mont">About Me</h1>
             <div className="mt-12 flex flex-row h-1/3 gap-12  ">
-              <div className="w-1/3 bg-red-500"></div>
+              <div className="w-[150vw] h-full bg-red-500"></div>
+              <div className="flex flex-col">
+
               <h1 className="text-md font-semibold font-mont h-min w-2/3">{textExample}</h1>
+              <MyInformationText/>
+              </div>
+
             </div>
             <div className="w-full mt-12">
               <ExperienceList/>
@@ -28,3 +33,26 @@ export default function About() {
     </>
   )
 }
+
+export function MyInformationText() {
+
+  const info = {
+    name:"Breno Amorim", 
+    email:"brenoamorim11@gmail.com", 
+    phone:"+55 (11) 94327-1046", 
+    age: 23, 
+    postal:"São Paulo - SP, Brasil"
+  }
+
+  return (
+  <>
+  <div className="w-full h-2/3 mt-5 flex flex-col gap-4 pt-4">
+    <h1 className="text-purple-400 font-semibold">Nome: <a className="text-black ">{info.name}</a></h1>
+    <h1 className="text-purple-400 font-semibold">E-mail: <a className="text-black ">{info.email}</a></h1>
+    <h1 className="text-purple-400 font-semibold">Telefone: <a className="text-black ">{info.phone}</a></h1>
+    <h1 className="text-purple-400 font-semibold">Idade: <a className="text-black ">{info.age}</a></h1>
+    <h1 className="text-purple-400 font-semibold">Moro: <a className="text-black">{info.postal}</a></h1>
+  </div>
+  </>)
+}
+
