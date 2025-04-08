@@ -1,4 +1,4 @@
-import Experience from "../components/Experience"
+import ExperienceList from "../components/Experience"
 
 export default function About() {
 
@@ -15,7 +15,7 @@ export default function About() {
               <h1 className="text-md font-semibold font-mont h-min w-2/3">{textExample}</h1>
             </div>
             <div className="w-full mt-12">
-              <Experience/>
+              <ExperienceList/>
             </div>
             <div className="w-full h-1/4 bg-yellow-500 mt-12">
 
