@@ -1,4 +1,4 @@
-import { motion, useAnimate } from "framer-motion"
+import { motion} from "framer-motion"
 
 export default function ExperienceList() {
 
@@ -9,7 +9,7 @@ export default function ExperienceList() {
 
     return (
     <div className=" ">
-        {ExpList.map((exp,index)=> (
+        {ExpList.map((exp)=> (
             <ExperienceCard title={exp.title} start={exp.start} finish={exp.finish} position={exp.position}/>
         ))}
     </div>

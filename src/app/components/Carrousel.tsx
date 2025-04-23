@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 export default function Carrousel() {
   const slides = [SmileBanner, MauaFoodBanner, SmileBanner, SmileBanner]
   const titles = ['Smile', 'MauaFood', 'SmartFarm', 'Portfolios']
+  const routes = ['smile', 'mauaFood', 'smartFarm', 'portfolios']
 
   const targetRef = useRef<HTMLDivElement | null>(null)
   const { scrollYProgress } = useScroll({
@@ -25,6 +26,7 @@ export default function Carrousel() {
         >
           {slides.map((url, mult) => (
             <CarrouselCard
+              link={routes[mult]}
               key={url}
               image={url}
               title={titles[mult]}
@@ -42,6 +44,7 @@ export function CarrouselCard(props: {
   image: string
   title: string
   duration: number
+  link: string
 }) {
   const navigate = useNavigate()
   return (
@@ -52,7 +55,7 @@ export function CarrouselCard(props: {
       animate={{ y: '0' }}
       transition={{ type: 'spring', duration: props.duration }}
     >
-      <a onClick={() => navigate('#')}>
+      <a onClick={() => navigate(props.link)}>
         <img
           src={props.image}
           className="peer size-full cursor-none justify-center object-cover transition-all duration-700 ease-in-out hover:origin-center hover:scale-[1.02] hover:transform hover:opacity-40"
